@@ -151,6 +151,6 @@ input:checked + .slider:before {
 }
 
 .dark-theme {
-  background-color: rgb(56, 55, 55) 46, 136);
+  background-color: rgb(44, 44, 44);
   color: white;
 }

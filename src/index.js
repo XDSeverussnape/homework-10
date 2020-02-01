@@ -1,37 +1,33 @@
 import '../src/styles.css';
 import json from '../src/data.json';
 
-//var source = document.getElementById('template').innerHTML;
-//var template = Handlebars.compile(source);
-//var html = template(json);
-//document.querySelector('.container').innerHTML = html;
-//console.log(html);
-//console.log(json);
-
 const Handlebars = require('handlebars');
 const source = document.getElementById('template').innerHTML;
 const template = Handlebars.compile(source);
 const html = template(json);
 document.querySelector('.js-menu').innerHTML = html;
-const checkbox = document.querySelector('.checkbox');
+const checkbox = document.getElementsByClassName('checkbox');
 const body = document.getElementsByTagName('body')[0];
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
-};
-console.log(Theme.LIGHT);
-console.log(Theme.DARK);
+localStorage.setItem('check', 'false');
 
-checkbox.addEventListener('change', e => {
-  localStorage.setItem('color', 'white');
-  const color = localStorage.getItem('color');
-  console.log(color);
+checkbox[0].addEventListener('click', e => {
+  localStorage.setItem('bgcolor', 'light-theme');
+  localStorage.setItem('atribute', 'checked');
 
-  if (e.target.checked == true) {
-    localStorage.setItem('color', '#313131');
-    body.style.background = localStorage.getItem('color');
-    localStorage.setItem('check', 'true');
-    e.target.checked = localStorage.getItem('check');
+  switch (e.target.checked) {
+    case false:
+      checkbox[0].removeAttribute(localStorage.getItem('atribute'));
+      body.classList.remove('dark-theme');
+      body.classList.add(localStorage.getItem('bgcolor'));
+      break;
+    case true:
+      checkbox[0].setAttribute(
+        localStorage.getItem('atribute'),
+        localStorage.getItem('atribute'),
+      );
+      body.classList.remove('light-theme');
+      localStorage.setItem('bgcolor', 'dark-theme');
+      body.classList.add(localStorage.getItem('bgcolor'));
+      break;
   }
-  console.log(e.target.checked);
 });
