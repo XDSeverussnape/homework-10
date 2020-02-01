@@ -12,43 +12,56 @@
   </head>
 
   <body>
+    <div class="wrapper">
+      <i class="material-icons">
+        brightness_high
+      </i>
+      <label class="switch material-icons">
+        <input type="checkbox" class="checkbox" />
+        <span class="slider round"></span>
+      </label>
+      <i class="material-icons">
+        brightness_4
+      </i>
+    </div>
     <ul class="js-menu"></ul>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script id="template" type="text/x-handlebars-template">
-      {{#each bloks}}
-      <li class="menu__item">
-        <div class="card">
-          <img src={{image}}
-            alt="" class="card__image" />
-          <div class="card__content">
-            <h2 class="card__name">{{name}}</h2>
-            <p class="card__price">
-              <i class="material-icons">
-                monetization_on
-              </i>
-              {{price}}
-            </p>
 
-            <p class="card__descr">
-              {{description}}
-            </p>
+            {{#each this}}
+            <li class="menu__item">
+              <div class="card">
+                <img src={{image}}
+                  alt="" class="card__image" />
+                <div class="card__content">
+                  <h2 class="card__name">{{name}}</h2>
+                  <p class="card__price">
+                    <i class="material-icons">
+                      monetization_on
+                    </i>
+                    {{price}} кредитов
+                  </p>
 
-            <ul class="tag-list">
+                  <p class="card__descr">
+                    {{description}}
+                  </p>
 
-              <li class="tag-list__item">{{iingredients}}</li>
-
-            </ul>
-          </div>
-
-          <button class="card__button button">
-            <i class="material-icons button__icon">
-              shopping_cart
-            </i>
-            В корзину
-          </button>
-        </div>
-      </li>
+                  <ul class="tag-list">
+      {{#each ingredients}}
+                    <li class="tag-list__item">{{this}}</li>
       {{/each}}
+                  </ul>
+                </div>
+
+                <button class="card__button button">
+                  <i class="material-icons button__icon">
+                    shopping_cart
+                  </i>
+                  В корзину
+                </button>
+              </div>
+            </li>
+            {{/each}}
     </script>
   </body>
 </html>

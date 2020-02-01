@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+li {
+  list-style-type: none;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
@@ -17,4 +21,136 @@ body {
 .card__image {
   width: 500px;
   height: auto;
+}
+
+.menu__item {
+  width: 500px;
+  height: auto;
+  margin: 10px;
+}
+
+.js-menu {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  padding-right: 12px;
+}
+
+.wrapper > .material-icons {
+  margin-right: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  display: none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(233, 230, 230);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #474849;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #b9ccdb;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.tag-list {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin: 5px;
+  padding-left: 0px;
+}
+
+.tag-list__item {
+  display: inline;
+  position: relative;
+  background-color: rgb(42, 42, 240);
+  margin: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.card__button {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(46, 46, 136);
+  color: white;
+  line-height: 2em;
+  padding: 5px;
+  border-color: rgb(46, 46, 136);
+}
+.card__button > .material-icons {
+  margin-right: 7px;
+}
+
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.dark-theme {
+  background-color: rgb(56, 55, 55) 46, 136);
+  color: white;
 }
