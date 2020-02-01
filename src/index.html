@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Webpack Starter Kit</title>
+  </head>
+
+  <body>
+    <ul class="js-menu"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script id="template" type="text/x-handlebars-template">
+      {{#each bloks}}
+      <li class="menu__item">
+        <div class="card">
+          <img src={{image}}
+            alt="" class="card__image" />
+          <div class="card__content">
+            <h2 class="card__name">{{name}}</h2>
+            <p class="card__price">
+              <i class="material-icons">
+                monetization_on
+              </i>
+              {{price}}
+            </p>
+
+            <p class="card__descr">
+              {{description}}
+            </p>
+
+            <ul class="tag-list">
+
+              <li class="tag-list__item">{{iingredients}}</li>
+
+            </ul>
+          </div>
+
+          <button class="card__button button">
+            <i class="material-icons button__icon">
+              shopping_cart
+            </i>
+            В корзину
+          </button>
+        </div>
+      </li>
+      {{/each}}
+    </script>
+  </body>
+</html>
