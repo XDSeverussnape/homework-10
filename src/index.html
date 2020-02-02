@@ -11,7 +11,7 @@
     <title>Webpack Starter Kit</title>
   </head>
 
-  <body>
+  <body onload="onload()">
     <div class="wrapper">
       <i class="material-icons">
         brightness_high
@@ -25,6 +25,19 @@
       </i>
     </div>
     <ul class="js-menu"></ul>
+    <script>
+      function onload() {
+        if (localStorage.getItem('atribute') == 'checked') {
+          const onloadbody = document.getElementsByTagName('body')[0];
+          const onloadcheck = document.querySelector('.checkbox');
+          onloadbody.classList.add(localStorage.getItem('classList'));
+          onloadcheck.setAttribute(
+            localStorage.getItem('atribute'),
+            localStorage.getItem('atribute'),
+          );
+        }
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script id="template" type="text/x-handlebars-template">
 

@@ -8,19 +8,22 @@ const html = template(json);
 document.querySelector('.js-menu').innerHTML = html;
 const checkbox = document.getElementsByClassName('checkbox');
 const body = document.getElementsByTagName('body')[0];
-localStorage.setItem('check', 'false');
 
 checkbox[0].addEventListener('click', e => {
   localStorage.setItem('classList', 'light-theme');
-  localStorage.setItem('atribute', 'checked');
+  if (checkbox[0].hasAttribute('checked')) {
+    localStorage.removeItem('atribute');
+  }
 
   switch (e.target.checked) {
     case false:
-      checkbox[0].removeAttribute(localStorage.getItem('atribute'));
+      checkbox[0].removeAttribute('checked');
       body.classList.remove('dark-theme');
       body.classList.add(localStorage.getItem('classList'));
+
       break;
     case true:
+      localStorage.setItem('atribute', 'checked');
       checkbox[0].setAttribute(
         localStorage.getItem('atribute'),
         localStorage.getItem('atribute'),
@@ -30,4 +33,5 @@ checkbox[0].addEventListener('click', e => {
       body.classList.add(localStorage.getItem('classList'));
       break;
   }
+  console.log(checkbox[0].getAttribute('checked'));
 });
